@@ -7,7 +7,8 @@
 1. Push changes to a remote repository : **git push**
 1. Pull changes from a remote repository : **git pull**
 1. Clone a remote repository : **git clone**
-1. View the history of a file : **git log**
+1. View the history of a file : **git log {{filename}}**
+1. View the history of a file : **git log --stat {{file name}}**
 
 ## Configuration Commands
 1. Set user name and email : **git config --global user.name "Your Name"**
