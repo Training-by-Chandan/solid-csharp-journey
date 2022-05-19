@@ -7,7 +7,69 @@ namespace Solid.CSharp.ConsoleApp
         public static void Main(string[] args)
         {
             //basic();
-            dataTypes();
+            //dataTypes();
+            ControlStatmentsExample();
+        }
+
+        private static void ControlStatmentsExample()
+        {
+            Console.WriteLine("Enter the number of day");
+            var num = Convert.ToInt32(Console.ReadLine());
+
+            ifElseStatement(num);
+
+            switchCaseStatement(num);
+            //(condition) ? <true statement> : <false statement>
+        }
+
+        private static void ifElseStatement(int num)
+        {
+            if (num == 1) Console.WriteLine("Sunday");
+            else if (num == 2) Console.WriteLine("Monday");
+            else if (num == 3) Console.WriteLine("Tuesday");
+            else if (num == 4) Console.WriteLine("Wednesday");
+            else if (num == 5) Console.WriteLine("Thursday");
+            else if (num == 6) Console.WriteLine("Friday");
+            else if (num == 7) Console.WriteLine("Saturday");
+            else Console.WriteLine("Not a Valid Day");
+        }
+
+        private static void switchCaseStatement(int num)
+        {
+            switch (num)
+            {
+                case 1:
+                    Console.WriteLine("Sunday");
+                    break;
+
+                case 2:
+                    Console.WriteLine("Monday");
+                    break;
+
+                case 3:
+                    Console.WriteLine("Tuesday");
+                    break;
+
+                case 4:
+                    Console.WriteLine("Wednesday");
+                    break;
+
+                case 5:
+                    Console.WriteLine("Thursday");
+                    break;
+
+                case 6:
+                    Console.WriteLine("Friday");
+                    break;
+
+                case 7:
+                    Console.WriteLine("Saturday");
+                    break;
+
+                default:
+                    Console.WriteLine("Not a Valid Day");
+                    break;
+            }
         }
 
         private static void dataTypes()
@@ -33,6 +95,9 @@ namespace Solid.CSharp.ConsoleApp
             i = (int)l;
             c = (char)i;
             c = (char)d;
+
+            //string str = i.ToString();
+            //int x = (int)str;
         }
 
         private static void basic()
