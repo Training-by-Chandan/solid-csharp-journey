@@ -12,7 +12,7 @@ namespace Solid.CSharp.ConsoleApp
                 //basic();
                 //dataTypes();
                 //ControlStatmentsExample();
-                LoopingStatements();
+                // LoopingStatements();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
