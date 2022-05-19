@@ -6,9 +6,56 @@ namespace Solid.CSharp.ConsoleApp
     {
         public static void Main(string[] args)
         {
-            //basic();
-            //dataTypes();
-            ControlStatmentsExample();
+            var res = "n";
+            do
+            {
+                //basic();
+                //dataTypes();
+                //ControlStatmentsExample();
+                LoopingStatements();
+
+                Console.WriteLine("Do you want to run once more? (y/n)");
+                res = Console.ReadLine();
+            } while (res.ToUpper() == "Y");
+        }
+
+        private static void LoopingStatements()
+        {
+            //known quantity and unknown quantity
+            //for, foreach, while, do while
+            Console.WriteLine("Enter the number");
+            var num = Convert.ToInt32(Console.ReadLine());
+
+            {
+                Console.WriteLine("===========================");
+                Console.WriteLine("using do while");
+                int i = 1;
+                do
+                {
+                    Console.WriteLine(num + " x " + i + " = " + num * i);
+                    i++;
+                } while (i <= 10);
+            }
+
+            {
+                Console.WriteLine("===========================");
+                Console.WriteLine("using while");
+                int i = 1;
+                while (i <= 10)
+                {
+                    Console.WriteLine(num + " x " + i + " = " + num * i);
+                    i++;
+                }
+            }
+
+            {
+                Console.WriteLine("===========================");
+                Console.WriteLine("using for loop");
+                for (int i = 1; i <= 10; i++)
+                {
+                    Console.WriteLine(num + " x " + i + " = " + num * i);
+                }
+            }
         }
 
         private static void ControlStatmentsExample()
