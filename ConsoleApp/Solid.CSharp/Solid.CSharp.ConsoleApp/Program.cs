@@ -6,17 +6,58 @@ namespace Solid.CSharp.ConsoleApp
     {
         public static void Main(string[] args)
         {
-            var res = "n";
-            do
-            {
-                //basic();
-                //dataTypes();
-                //ControlStatmentsExample();
-                LoopingStatements();
+            calc();
+            //var res = "n";
+            //do
+            //{
+            //    //basic();
+            //    //dataTypes();
+            //    //ControlStatmentsExample();
+            //    //LoopingStatements();
 
-                Console.WriteLine("Do you want to run once more? (y/n)");
-                res = Console.ReadLine();
-            } while (res.ToUpper() == "Y");
+            //    //Console.WriteLine("Do you want to run once more? (y/n)");
+            //    //res = Console.ReadLine();
+            //}while (res.ToUpper() == kc"Y");
+
+            static void calc()
+            {
+                Console.WriteLine("Enter two numbers:");
+                double a = Convert.ToDouble(Console.ReadLine());
+                double b = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("Enter the operator: ");
+                char op = Convert.ToChar(Console.ReadLine());
+
+                char choice;
+                double result;
+
+                switch (op)
+                {
+                    case '+':
+                        result = a + b;
+                        Console.WriteLine(result);
+                        break;
+
+                    case '-':
+                        result = a - b;
+                        Console.WriteLine(result);
+                        break;
+
+                    case '*':
+                        result = a * b;
+                        Console.WriteLine(result);
+                        break;
+
+                    case '/':
+                        result = a / b;
+                        Console.WriteLine(result);
+                        break;
+
+                    default:
+                        Console.WriteLine("Enter a valid character: ");
+                        break;
+                }
+            }
         }
 
         private static void LoopingStatements()
