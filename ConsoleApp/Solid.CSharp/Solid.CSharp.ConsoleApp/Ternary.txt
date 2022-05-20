@@ -1,0 +1,9 @@
+﻿Loading context from 'CSharpInteractive.rsp'.
+> int i = 2;
+> var day = (i == 1) ? "Sunday" : "Not Sunday";
+> day
+"Not Sunday"
+> day = (i == 1) ? "Sunday" : (i == 2) ? "Monday" : (i == 3) ? "Tuesday" : (i == 4) ? "Wednesday" : "Not valid";
+> day
+"Monday"
+> 
