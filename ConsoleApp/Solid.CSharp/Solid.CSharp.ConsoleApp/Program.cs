@@ -15,11 +15,34 @@ namespace Solid.CSharp.ConsoleApp
                 //dataTypes();
                 //ControlStatmentsExample();
                 //LoopingStatements();
-                StringConcatenation();
+                //StringConcatenation();
+                //ClassAndObjects();
+                ClassAndObjectsV2();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void ClassAndObjectsV2()
+        {
+            try
+            {
+                // StudentInfo nabin = new StudentInfo("Nabin");
+                StudentInfo student = new StudentInfo();
+                Console.WriteLine("Enter the name");
+                student.Name = Console.ReadLine();
+                Console.WriteLine("Enter the age");
+                student.Age = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter the Math");
+                student.Math = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine($"Info is \nName : {student.Name}\nAge : {student.Age}\nMath : {student.Math}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void ClassAndObjects()
@@ -27,6 +50,11 @@ namespace Solid.CSharp.ConsoleApp
             HumanBeing nabin = new HumanBeing();
             HumanBeing bhim = new HumanBeing();
             nabin = new HumanBeing();
+            nabin.age = 10;
+            var i = 10;
+            bhim = new HumanBeing(i);
+            bhim.age = 12;
+            Console.WriteLine(bhim.age);
         }
 
         private static void StringConcatenation()
