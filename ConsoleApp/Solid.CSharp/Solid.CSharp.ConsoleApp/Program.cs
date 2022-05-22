@@ -12,7 +12,7 @@ namespace Solid.CSharp.ConsoleApp
                 //basic();
                 //dataTypes();
                 //ControlStatmentsExample();
-                //  LoopingStatements();
+                LoopingStatements();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
@@ -63,7 +63,7 @@ namespace Solid.CSharp.ConsoleApp
             Console.WriteLine("Enter the number of day");
             var num = Convert.ToInt32(Console.ReadLine());
 
-            ifElseStatement(num);
+            //  ifElseStatement(num);
 
             switchCaseStatement(num);
             //(condition) ? <true statement> : <false statement>
