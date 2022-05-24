@@ -88,5 +88,31 @@
                 }
             }
         }
+        private double _Min = 1;
+        private double _Max = 48;
+        private double _Roll;
+
+        public double Roll
+        {
+            get
+            {
+                return _Roll;
+            }
+            set
+            {
+                if (value > _Max)
+                {
+                    throw new Exception($"Number cannot be greater then max { _Max}");
+                }
+                if (value < _Min)
+                {
+                    throw new Exception($"Number cannot be less then min {_Min}");
+                }
+                else
+                {
+                    Roll = value;
+                }
+            }
+        }
     }
 }

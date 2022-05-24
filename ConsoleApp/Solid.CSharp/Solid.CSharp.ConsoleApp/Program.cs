@@ -36,8 +36,10 @@ namespace Solid.CSharp.ConsoleApp
                 student.Age = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Enter the Math");
                 student.Math = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter your Roll No:");
+                student.Roll = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine($"Info is \nName : {student.Name}\nAge : {student.Age}\nMath : {student.Math}");
+                Console.WriteLine($"Info is \nName : {student.Name}\nAge : {student.Age}\nMath : {student.Math}\nRoll : {student.Roll}");
             }
             catch (Exception ex)
             {
