@@ -17,11 +17,20 @@ namespace Solid.CSharp.ConsoleApp
                 //LoopingStatements();
                 //StringConcatenation();
                 //ClassAndObjects();
-                ClassAndObjectsV2();
+                // ClassAndObjectsV2();
+                ClassStackBehaviour();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void ClassStackBehaviour()
+        {
+            StackBehav abc = new StackBehav();
+            abc.push(10);
+            abc.push(12);
+            abc.pop();
         }
 
         private static void ClassAndObjectsV2()
