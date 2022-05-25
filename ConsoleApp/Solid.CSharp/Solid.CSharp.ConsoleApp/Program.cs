@@ -1,6 +1,9 @@
 ﻿using System;
+<<<<<<< HEAD
 using System.Text;
 using Solid.DSharp;
+=======
+>>>>>>> a6c7e5c2d268dbd18f24220bc08596e9f990dc82
 
 namespace Solid.CSharp.ConsoleApp
 {
@@ -8,6 +11,7 @@ namespace Solid.CSharp.ConsoleApp
     {
         public static void Main(string[] args)
         {
+<<<<<<< HEAD
             var res = "n";
             do
             {
@@ -115,6 +119,59 @@ namespace Solid.CSharp.ConsoleApp
             foreach (var item in days)
             {
                 Console.WriteLine(item);
+=======
+            calc();
+            //var res = "n";
+            //do
+            //{
+            //    //basic();
+            //    //dataTypes();
+            //    //ControlStatmentsExample();
+            //    //LoopingStatements();
+
+            //    //Console.WriteLine("Do you want to run once more? (y/n)");
+            //    //res = Console.ReadLine();
+            //}while (res.ToUpper() == kc"Y");
+
+            static void calc()
+            {
+                Console.WriteLine("Enter two numbers:");
+                double a = Convert.ToDouble(Console.ReadLine());
+                double b = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("Enter the operator: ");
+                char op = Convert.ToChar(Console.ReadLine());
+
+                char choice;
+                double result;
+
+                switch (op)
+                {
+                    case '+':
+                        result = a + b;
+                        Console.WriteLine(result);
+                        break;
+
+                    case '-':
+                        result = a - b;
+                        Console.WriteLine(result);
+                        break;
+
+                    case '*':
+                        result = a * b;
+                        Console.WriteLine(result);
+                        break;
+
+                    case '/':
+                        result = a / b;
+                        Console.WriteLine(result);
+                        break;
+
+                    default:
+                        Console.WriteLine("Enter a valid character: ");
+                        break;
+                }
+>>>>>>> a6c7e5c2d268dbd18f24220bc08596e9f990dc82
             }
         }
 
@@ -131,11 +188,14 @@ namespace Solid.CSharp.ConsoleApp
                 int i = 1;
                 do
                 {
+<<<<<<< HEAD
                     if (i == 5)
                     {
                         i++;
                         continue;
                     }
+=======
+>>>>>>> a6c7e5c2d268dbd18f24220bc08596e9f990dc82
                     Console.WriteLine(num + " x " + i + " = " + num * i);
                     i++;
                 } while (i <= 10);
