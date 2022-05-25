@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+using Solid.DSharp;
 
 namespace Solid.CSharp.ConsoleApp
 {
@@ -12,11 +14,86 @@ namespace Solid.CSharp.ConsoleApp
                 //basic();
                 //dataTypes();
                 //ControlStatmentsExample();
-               // LoopingStatements();
+
+                // LoopingStatements();
+
+                //LoopingStatements();
+                //StringConcatenation();
+                //ClassAndObjects();
+                ClassAndObjectsV2();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void ClassAndObjectsV2()
+        {
+            try
+            {
+                // StudentInfo nabin = new StudentInfo("Nabin");
+                StudentInfo student = new StudentInfo();
+                Console.WriteLine("Enter the name");
+                student.Name = Console.ReadLine();
+                Console.WriteLine("Enter the age");
+                student.Age = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter the Math");
+                student.Math = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine($"Info is \nName : {student.Name}\nAge : {student.Age}\nMath : {student.Math}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void ClassAndObjects()
+        {
+            HumanBeing nabin = new HumanBeing();
+            HumanBeing bhim = new HumanBeing();
+            nabin = new HumanBeing();
+            nabin.age = 10;
+            var i = 10;
+            bhim = new HumanBeing(i);
+            bhim.age = 12;
+            Console.WriteLine(bhim.age);
+        }
+
+        private static void StringConcatenation()
+        {
+            string a = "Hello";
+            string b = "World";
+            string res1 = a + " " + b; //concatenation
+
+            //formatting
+            string template = "{0} {1}";
+            var res2 = string.Format(template, a, b);
+
+            //string interpolation
+            var res3 = $"{a} {b}, => {a} and {b}";
+
+            //string builder
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Dear Sir,");
+            sb.AppendLine("\tLorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+            sb.AppendLine("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odit id totam consectetur hic velit minima veritatis doloremque magnam! Quia dolor quis eum, ut dicta perspiciatis sapiente illum laborum aliquid.");
+            var result = sb.ToString();
+            Console.WriteLine(result);
+        }
+
+        private static void LoopingExamplesV2()
+        {
+            string[] days = new string[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+            for (int i = 0; i < days.Length - 1; i++)
+            {
+                Console.WriteLine("The day is {0}", days[i]);
+            }
+
+            foreach (var item in days)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         private static void LoopingStatements()
@@ -32,6 +109,11 @@ namespace Solid.CSharp.ConsoleApp
                 int i = 1;
                 do
                 {
+                    if (i == 5)
+                    {
+                        i++;
+                        continue;
+                    }
                     Console.WriteLine(num + " x " + i + " = " + num * i);
                     i++;
                 } while (i <= 10);
