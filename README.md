@@ -1,4 +1,6 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 # solid-csharp-journey
 
 # Git commands
@@ -23,6 +25,7 @@
 3. Add Remote Repository : **git remote add {{origin}} {{url}}**
 4. Detailed information of remote repository : **git remote show {{origin}}**
 =======
+>>>>>>> a6c7e5c2d268dbd18f24220bc08596e9f990dc82
 # solid-csharp-journey   
 Official repository for students of Broadway Infosys 4PM group  
 
@@ -36,4 +39,7 @@ Official repository for students of Broadway Infosys 4PM group
 7. GitHub
 8. Visual Studio Code
 9. Visual Studio
+<<<<<<< HEAD
+=======
 >>>>>>> c2cfa09248f97eb46974456aa774a9ffe5a4022d
+>>>>>>> a6c7e5c2d268dbd18f24220bc08596e9f990dc82
