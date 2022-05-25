@@ -21,7 +21,8 @@ namespace Solid.CSharp.ConsoleApp
             }
             set
             {
-                if (Regex.IsMatch())
+                Regex re = new Regex();
+                if (re.IsMatch())
                 {
                     _firstname = value;
                 }
