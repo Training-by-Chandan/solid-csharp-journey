@@ -20,11 +20,56 @@ namespace Solid.CSharp.ConsoleApp
                 //LoopingStatements();
                 //StringConcatenation();
                 //ClassAndObjects();
-                ClassAndObjectsV2();
+                //ClassAndObjectsV2();
+                //CustomStackImplementation();
+                PropertiesExample();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void PropertiesExample()
+        {
+            StudentInfo si = new StudentInfo(0, 80, 28);
+            si.Math = 101;
+            si.Science = -1;
+
+            Console.WriteLine($"Total = {si.Total}");
+            Console.WriteLine($"Percentage = {si.Percentage}");
+            Console.WriteLine($"Division = {si.Division}");
+            Console.WriteLine("=======================");
+            Console.WriteLine("After Changing the marks");
+            si.Math = 80;
+            si.Science = 73;
+            Console.WriteLine($"Total = {si.Total}");
+            Console.WriteLine($"Percentage = {si.Percentage}");
+            Console.WriteLine($"Division = {si.Division}");
+            Console.WriteLine("=======================");
+        }
+
+        private static void CustomStackImplementation()
+        {
+            CustomStack cs = new CustomStack();
+            cs.Push(1);
+            cs.Push(2);
+            cs.Push(3);
+            cs.Pop();
+            cs.Push(4);
+            cs.Push(5);
+            cs.Push(6);
+            cs.Push(7);
+            cs.Push(8);
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
         }
 
         private static void ClassAndObjectsV2()
