@@ -18,14 +18,26 @@ namespace Solid.CSharp.ConsoleApp
                 //StringConcatenation();
                 //ClassAndObjects();
                 // ClassAndObjectsV2();
-                ClassStackBehaviour();
+                //StackBehaviour();
+                QueueBehaviour();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
         }
 
-        private static void ClassStackBehaviour()
+        private static void QueueBehaviour()
+        {
+            Queue xyz = new Queue();
+            xyz.enqueue(5);
+            xyz.enqueue(9);
+            xyz.enqueue(8);
+            xyz.enqueue(4);
+            xyz.dequeue();
+            xyz.enqueue(2);
+        }
+
+        private static void StackBehaviour()
         {
             StackBehav abc = new StackBehav();
             abc.push(10);
