@@ -6,18 +6,18 @@ namespace Solid.CSharp.ConsoleApp
     {
         public static void Main(string[] args)
         {
-            calc();
-            //var res = "n";
-            //do
-            //{
-            //    //basic();
-            //    //dataTypes();
-            //    //ControlStatmentsExample();
-            //    //LoopingStatements();
+            //calc();
+            var res = "n";
+            do
+            {
+                //basic();
+                //dataTypes();
+                //ControlStatmentsExample();
+                LoopingStatements();
 
-            //    //Console.WriteLine("Do you want to run once more? (y/n)");
-            //    //res = Console.ReadLine();
-            //}while (res.ToUpper() == kc"Y");
+                Console.WriteLine("Do you want to run once more? (y/n)");
+                res = Console.ReadLine();
+            } while (res.ToUpper() == "Y");
 
             static void calc()
             {
@@ -28,7 +28,6 @@ namespace Solid.CSharp.ConsoleApp
                 Console.WriteLine("Enter the operator: ");
                 char op = Convert.ToChar(Console.ReadLine());
 
-                char choice;
                 double result;
 
                 switch (op)
