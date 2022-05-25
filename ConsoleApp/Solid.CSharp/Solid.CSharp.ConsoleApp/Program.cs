@@ -19,11 +19,17 @@ namespace Solid.CSharp.ConsoleApp
                 //ClassAndObjects();
                 // ClassAndObjectsV2();
                 //StackBehaviour();
-                QueueBehaviour();
+                //QueueBehaviour();
+                Validation();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void Validation()
+        {
+            Valid vd = new Valid()
         }
 
         private static void QueueBehaviour()
