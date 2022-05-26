@@ -35,6 +35,12 @@ namespace Solid.CSharp.ConsoleApp
                 Console.WriteLine("Enter Your First name:");
                 string fn = Console.ReadLine();
                 vd.FirstName = fn;
+                Console.WriteLine("Enter Your Last name:");
+                string ln = Console.ReadLine();
+                vd.LastName = ln;
+                Console.WriteLine("Enter Your email:");
+                string em = Console.ReadLine();
+                vd.Email = em;
             }
             catch (Exception ex)
             {

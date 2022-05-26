@@ -11,7 +11,7 @@ namespace Solid.CSharp.ConsoleApp
     {
         private string _firstname;
         private string _lastname;
-        private int _email;
+        private string _email;
 
         public string FirstName
         {
@@ -21,7 +21,7 @@ namespace Solid.CSharp.ConsoleApp
             }
             set
             {
-                Regex re = new Regex("[A - Z][a - z]{ 2,}");
+                Regex re = new Regex("[A-Z][a-z]{2,}");
                 if (re.IsMatch(value))
                 {
                     _firstname = value;
@@ -41,7 +41,7 @@ namespace Solid.CSharp.ConsoleApp
             }
             set
             {
-                Regex re = new Regex("[A - Z][a - z]{ 2,}");
+                Regex re = new Regex("[A-Z][a-z]{2,}");
                 if (re.IsMatch(value))
                 {
                     _lastname = value;
