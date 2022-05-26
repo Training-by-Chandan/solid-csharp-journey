@@ -29,7 +29,17 @@ namespace Solid.CSharp.ConsoleApp
 
         private static void Validation()
         {
-            Valid vd = new Valid()
+            try
+            {
+                Valid vd = new Valid();
+                Console.WriteLine("Enter Your First name:");
+                string fn = Console.ReadLine();
+                vd.FirstName = fn;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void QueueBehaviour()
