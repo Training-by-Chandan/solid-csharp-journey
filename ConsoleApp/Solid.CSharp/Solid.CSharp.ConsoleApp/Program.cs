@@ -19,11 +19,40 @@ namespace Solid.CSharp.ConsoleApp
                 //ClassAndObjects();
                 //ClassAndObjectsV2();
                 //CustomStackImplementation();
-                PropertiesExample();
+                //PropertiesExample();
+                OperatorOverloadingExample();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void OperatorOverloadingExample()
+        {
+            StudentInfo firstTerm = new StudentInfo(0, 80, 28);
+            firstTerm.Math = 10;
+            firstTerm.Science = 20;
+            StudentInfo secondTerm = new StudentInfo(0, 80, 28);
+            secondTerm.Math = 10;
+            secondTerm.Science = 20;
+            StudentInfo finalTerm = new StudentInfo(0, 80, 28);
+            finalTerm.Math = 101;
+            finalTerm.Science = -1;
+
+            //var totalMin = firstTerm.Min + secondTerm.Min + finalTerm.Min;
+            //var totalMax = firstTerm.Max + secondTerm.Max + finalTerm.Max;
+            //var totalPass = firstTerm.Pass + secondTerm.Pass + finalTerm.Pass;
+            //StudentInfo total = new StudentInfo(totalMin, totalMax, totalPass);
+            //total.Math = firstTerm.Math + secondTerm.Math + finalTerm.Math;
+            //total.Science = firstTerm.Science + secondTerm.Science + finalTerm.Science;
+            //total.English = firstTerm.English + secondTerm.English + finalTerm.English;
+            int i = (10 + 20) * (30 + 40);
+            StudentInfo final = firstTerm + secondTerm + finalTerm - firstTerm + secondTerm;
+            //i++;
+            //firstTerm++;
+            //firstTerm = firstTerm + 5;
+
+            var eq = firstTerm == secondTerm;
         }
 
         private static void PropertiesExample()
