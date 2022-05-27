@@ -18,11 +18,31 @@ namespace Solid.CSharp.ConsoleApp
                 //StringConcatenation();
                 //ClassAndObjects();
                 //ClassAndObjectsV2();
-                CustomStackImplementation();
+                //CustomStackImplementation();
+                PropertiesExample();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void PropertiesExample()
+        {
+            StudentInfo si = new StudentInfo(0, 80, 28);
+            si.Math = 101;
+            si.Science = -1;
+
+            Console.WriteLine($"Total = {si.Total}");
+            Console.WriteLine($"Percentage = {si.Percentage}");
+            Console.WriteLine($"Division = {si.Division}");
+            Console.WriteLine("=======================");
+            Console.WriteLine("After Changing the marks");
+            si.Math = 80;
+            si.Science = 73;
+            Console.WriteLine($"Total = {si.Total}");
+            Console.WriteLine($"Percentage = {si.Percentage}");
+            Console.WriteLine($"Division = {si.Division}");
+            Console.WriteLine("=======================");
         }
 
         private static void CustomStackImplementation()
