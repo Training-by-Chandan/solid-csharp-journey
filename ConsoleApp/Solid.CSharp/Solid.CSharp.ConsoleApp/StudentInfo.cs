@@ -64,6 +64,12 @@
         private double _max = 100;
         private double _pass = 32;
 
+        public double Min
+        { get { return _min; } }
+
+        public double Max => _max;
+        public double Pass => _pass;
+
         private double _math;
 
         public double Math
@@ -86,6 +92,20 @@
                 {
                     _math = value;
                 }
+            }
+        }
+
+        private double _english;
+
+        public double English
+        {
+            get
+            {
+                return _english;
+            }
+            set
+            {
+                _english = (value > _max) ? _max : (value < _min) ? _min : value;
             }
         }
 
@@ -166,6 +186,7 @@
                 return div;
             }
         }
+<<<<<<< HEAD
         private double _Min = 1;
         private double _Max = 48;
         private double _Roll;
@@ -191,6 +212,59 @@
                     Roll = value;
                 }
             }
+=======
+
+        public static StudentInfo operator +(StudentInfo first
+            , StudentInfo second)
+        {
+            var totalMin = first.Min + second.Min;
+            var totalMax = first.Max + second.Max;
+            var totalPass = first.Pass + second.Pass;
+            StudentInfo total = new StudentInfo(totalMin, totalMax, totalPass);
+            total.Math = first.Math + second.Math;
+            total.Science = first.Science + second.Science;
+            total.English = first.English + second.English;
+            return total;
+        }
+
+        public static StudentInfo operator -(StudentInfo first
+            , StudentInfo second)
+        {
+            var totalMin = first.Min + second.Min;
+            var totalMax = first.Max + second.Max;
+            var totalPass = first.Pass + second.Pass;
+            StudentInfo total = new StudentInfo(totalMin, totalMax, totalPass);
+            total.Math = first.Math - second.Math;
+            total.Science = first.Science - second.Science;
+            total.English = first.English - second.English;
+            return total;
+        }
+
+        public static StudentInfo operator ++(StudentInfo first)
+        {
+            first.Math++;
+            first.Science++;
+            first.English++;
+            return first;
+        }
+
+        public static StudentInfo operator +(StudentInfo first, int num)
+        {
+            first.Math += 5;
+            first.Science += 5;
+            first.English += 5;
+            return first;
+        }
+
+        public static bool operator ==(StudentInfo obj1, StudentInfo obj2)
+        {
+            return obj1.Math == obj2.Math && obj1.Science == obj2.Science && obj1.English == obj2.English;
+        }
+
+        public static bool operator !=(StudentInfo obj1, StudentInfo obj2)
+        {
+            return !(obj1.Math == obj2.Math && obj1.Science == obj2.Science && obj1.English == obj2.English);
+>>>>>>> 46a249bd6b9a676268dce2fac22d01ab8f0d29a6
         }
     }
 }
