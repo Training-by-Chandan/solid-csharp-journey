@@ -61,7 +61,7 @@ namespace Solid.CSharp.ConsoleApp
             }
             set
             {
-                Regex re = new Regex("");
+                Regex re = new Regex("([a-zA-Z][A-Za-z0-9._]{2,})[@]([a-z]{4,})[.]([a-z]{2,})");
                 if (re.IsMatch(value))
                 {
                     _email = value;
