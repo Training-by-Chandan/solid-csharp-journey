@@ -187,6 +187,7 @@
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         private double _Min = 1;
         private double _Max = 48;
         private double _Roll;
@@ -213,6 +214,8 @@
                 }
             }
 =======
+=======
+>>>>>>> 46a249bd6b9a676268dce2fac22d01ab8f0d29a6
 
         public static StudentInfo operator +(StudentInfo first
             , StudentInfo second)
@@ -264,6 +267,9 @@
         public static bool operator !=(StudentInfo obj1, StudentInfo obj2)
         {
             return !(obj1.Math == obj2.Math && obj1.Science == obj2.Science && obj1.English == obj2.English);
+<<<<<<< HEAD
+>>>>>>> 46a249bd6b9a676268dce2fac22d01ab8f0d29a6
+=======
 >>>>>>> 46a249bd6b9a676268dce2fac22d01ab8f0d29a6
         }
     }
