@@ -20,11 +20,28 @@ namespace Solid.CSharp.ConsoleApp
                 //ClassAndObjectsV2();
                 //CustomStackImplementation();
                 //PropertiesExample();
-                OperatorOverloadingExample();
+                //OperatorOverloadingExample();
+                FunctionCalls();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void FunctionCalls()
+        {
+            FunctionClass fc = new FunctionClass();
+            fc.FuncTwo(1, "abc", 10f);
+            fc.FuncTwo(b: "abc", a: 1);
+            fc.FuncTwo(10, f: 20f);
+            fc.FuncTwo();
+            int a = 16;
+            int b = 17;
+            int res = 5;
+            fc.AddV3(a, b, ref res);
+            fc.AddV4(a,b, out res);
+            var data = fc.FuncThree();
+            
         }
 
         private static void OperatorOverloadingExample()

@@ -187,6 +187,11 @@
             }
         }
 
+        public StudentInfo GetNewObject()
+        {
+            return new StudentInfo();
+        }
+
         public static StudentInfo operator +(StudentInfo first
             , StudentInfo second)
         {
