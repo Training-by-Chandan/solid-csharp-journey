@@ -29,6 +29,11 @@ namespace Solid.CSharp.ConsoleApp
             } while (res.ToUpper() == "Y");
         }
 
+        private static void SingletonExplained()
+        {
+            Singleton.Instance.CompanyName = "ABC";
+        }
+
         public static void StaticAndNonStaticExplanation()
         {
             //StaticClass sc = new StaticClass();
