@@ -21,15 +21,34 @@ namespace Solid.CSharp.ConsoleApp
                 //CustomStackImplementation();
                 //PropertiesExample();
                 //OperatorOverloadingExample();
-                FunctionCalls();
+                //FunctionCalls();
+                StaticAndNonStaticExplanation();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
         }
 
+        public static void StaticAndNonStaticExplanation()
+        {
+            //StaticClass sc = new StaticClass();
+            StaticClass.i = 10;
+            StaticClass.FunctionOne();
+            NonStaticClass nsc = new NonStaticClass();
+            NonStaticClass nsc1 = new NonStaticClass();
+            NonStaticClass nsc2 = new NonStaticClass();
+            nsc.FunctionOne();
+            nsc1.FunctionOne();
+            nsc2.FunctionOne();
+
+            //NonStaticClass.iStatic = 10;
+            //nsc.i = 20;
+        }
+
         private static void FunctionCalls()
         {
+            int y = StaticClass.i;
+            StaticClass.i = 20;
             FunctionClass fc = new FunctionClass();
             fc.FuncTwo(1, "abc", 10f);
             fc.FuncTwo(b: "abc", a: 1);
@@ -39,9 +58,8 @@ namespace Solid.CSharp.ConsoleApp
             int b = 17;
             int res = 5;
             fc.AddV3(a, b, ref res);
-            fc.AddV4(a,b, out res);
+            fc.AddV4(a, b, out res);
             var data = fc.FuncThree();
-            
         }
 
         private static void OperatorOverloadingExample()
