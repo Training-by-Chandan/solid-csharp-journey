@@ -22,11 +22,28 @@ namespace Solid.CSharp.ConsoleApp
                 //PropertiesExample();
                 //OperatorOverloadingExample();
                 //FunctionCalls();
-                StaticAndNonStaticExplanation();
+                //StaticAndNonStaticExplanation();
+                InheritanceExample();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void InheritanceExample()
+        {
+            //LivingThings l1 = new LivingThings();
+            ////l1.Name = ""; //cannot be accessed
+            //var a1 = new Animal();
+            //Plant p1 = new Plant();
+            //Human h1 = new Human();
+            //a1 = new();
+
+            //LivingThings l1 = new LivingThings();
+            LivingThings l2 = new LivingThings("abc");
+
+            Animal a1 = new Animal();
+            Animal a2 = new Animal("DOG");
         }
 
         private static void SingletonExplained()
