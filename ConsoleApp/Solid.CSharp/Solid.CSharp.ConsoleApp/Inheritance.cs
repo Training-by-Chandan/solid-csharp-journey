@@ -13,6 +13,13 @@
         {
             Name = name;
         }
+
+        public virtual void Eat()
+        {
+            Console.WriteLine("Living things can eat");
+        }
+
+      
     }
 
     public class Animal : LivingThings
@@ -26,6 +33,11 @@
         {
             Name = name;
         }
+
+        public override void Eat()
+        {
+            Console.WriteLine("Animal can eat");
+        }
     }
 
     public class Plant : LivingThings
@@ -33,12 +45,22 @@
         public Plant() : base("Default")
         {
         }
+
+        public void Eat()
+        {
+            Console.WriteLine("Plant can eat");
+        }
     }
 
     public class Vertibrates : Animal
     {
         public Vertibrates() : base()
         {
+        }
+
+        public virtual void Eats()
+        {
+            Console.WriteLine("Vertibrates Can Eat");
         }
     }
 
@@ -54,5 +76,15 @@
         public Human()
         {
         }
+
+        public override void Eats()
+        {
+            Console.WriteLine("Human Can Eat");
+        }
+        public override string ToString()
+        {
+            return "Hi I am from human object";
+        }
+        
     }
 }

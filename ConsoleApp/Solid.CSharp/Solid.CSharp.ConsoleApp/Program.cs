@@ -38,12 +38,22 @@ namespace Solid.CSharp.ConsoleApp
             //Plant p1 = new Plant();
             //Human h1 = new Human();
             //a1 = new();
-
+            //A a
             //LivingThings l1 = new LivingThings();
-            LivingThings l2 = new LivingThings("abc");
-
-            Animal a1 = new Animal();
             Animal a2 = new Animal("DOG");
+
+            LivingThings l2 = new LivingThings("abc");
+            LivingThings a1 = new Animal();
+            LivingThings p1 = new Plant();
+            LivingThings h1 = new Human();
+
+            l2.Eat();
+            a1.Eat();
+            p1.Eat();
+            h1.Eat();
+
+            Console.WriteLine($"{h1.ToString()}");
+            Console.WriteLine($"{l2.ToString()}");
         }
 
         private static void SingletonExplained()
