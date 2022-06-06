@@ -23,11 +23,77 @@ namespace Solid.CSharp.ConsoleApp
                 //OperatorOverloadingExample();
                 //FunctionCalls();
                 //StaticAndNonStaticExplanation();
-                InheritanceExample();
+                //InheritanceExample();
+                InterfaceExample();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void InterfaceExample()
+        {
+            Console.WriteLine("Press\n1 for Square\n2 for Rectangle\n3 for Circle");
+            var choice = Convert.ToInt32(Console.ReadLine());
+
+            var shape = ShapeFactory(choice);
+            if (shape != null)
+            {
+                shape.GetInput();
+                shape.Area();
+                shape.Perimeter();
+            }
+        }
+
+        private static IShape ShapeFactory(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return new Square();
+
+                case 2:
+                    return new Rectangle();
+
+                case 3:
+                    return new Circle();
+
+                case 4:
+                    return new Triangle();
+
+                case 5:
+                    return new Pentagon();
+
+                default:
+                    return null;
+            }
+        }
+
+        private static void WithoutInterfaceExample()
+        {
+            Console.WriteLine("Press\n1 for Square\n2 for Rectangle");
+            var choice = Console.ReadLine();
+            if (choice == "1")
+            {
+                Square sq = new Square();
+                sq.GetInput();
+                sq.Area();
+                sq.Perimeter();
+            }
+            else if (choice == "2")
+            {
+                Rectangle r = new Rectangle();
+                r.GetInput();
+                r.Area();
+                r.Perimeter();
+            }
+            else if (choice == "4")
+            {
+                Triangle t = new Triangle();
+                t.GetInput();
+                t.Area();
+                t.Perimeter();
+            }
         }
 
         private static void InheritanceExample()
