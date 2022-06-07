@@ -19,11 +19,173 @@ namespace Solid.CSharp.ConsoleApp
                 //ClassAndObjects();
                 //ClassAndObjectsV2();
                 //CustomStackImplementation();
-                PropertiesExample();
+                //PropertiesExample();
+                //OperatorOverloadingExample();
+                //FunctionCalls();
+                //StaticAndNonStaticExplanation();
+                //InheritanceExample();
+                InterfaceExample();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void InterfaceExample()
+        {
+            Console.WriteLine("Press\n1 for Square\n2 for Rectangle\n3 for Circle");
+            var choice = Convert.ToInt32(Console.ReadLine());
+
+            var shape = ShapeFactory(choice);
+            if (shape != null)
+            {
+                shape.GetInput();
+                shape.Area();
+                shape.Perimeter();
+            }
+        }
+
+        private static IShape ShapeFactory(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return new Square();
+
+                case 2:
+                    return new Rectangle();
+
+                case 3:
+                    return new Circle();
+
+                case 4:
+                    return new Triangle();
+
+                case 5:
+                    return new Pentagon();
+
+                default:
+                    return null;
+            }
+        }
+
+        private static void WithoutInterfaceExample()
+        {
+            Console.WriteLine("Press\n1 for Square\n2 for Rectangle");
+            var choice = Console.ReadLine();
+            if (choice == "1")
+            {
+                Square sq = new Square();
+                sq.GetInput();
+                sq.Area();
+                sq.Perimeter();
+            }
+            else if (choice == "2")
+            {
+                Rectangle r = new Rectangle();
+                r.GetInput();
+                r.Area();
+                r.Perimeter();
+            }
+            else if (choice == "4")
+            {
+                Triangle t = new Triangle();
+                t.GetInput();
+                t.Area();
+                t.Perimeter();
+            }
+        }
+
+        private static void InheritanceExample()
+        {
+            //LivingThings l1 = new LivingThings();
+            ////l1.Name = ""; //cannot be accessed
+            //var a1 = new Animal();
+            //Plant p1 = new Plant();
+            //Human h1 = new Human();
+            //a1 = new();
+            //A a
+            //LivingThings l1 = new LivingThings();
+            Animal a2 = new Animal("DOG");
+
+            LivingThings l2 = new LivingThings("abc");
+            LivingThings a1 = new Animal();
+            LivingThings p1 = new Plant();
+            LivingThings h1 = new Human();
+
+            l2.Eat();
+            a1.Eat();
+            p1.Eat();
+            h1.Eat();
+
+            Console.WriteLine($"{h1.ToString()}");
+            Console.WriteLine($"{l2.ToString()}");
+        }
+
+        private static void SingletonExplained()
+        {
+            Singleton.Instance.CompanyName = "ABC";
+        }
+
+        public static void StaticAndNonStaticExplanation()
+        {
+            //StaticClass sc = new StaticClass();
+            StaticClass.i = 10;
+            StaticClass.FunctionOne();
+            NonStaticClass nsc = new NonStaticClass();
+            NonStaticClass nsc1 = new NonStaticClass();
+            NonStaticClass nsc2 = new NonStaticClass();
+            nsc.FunctionOne();
+            nsc1.FunctionOne();
+            nsc2.FunctionOne();
+
+            //NonStaticClass.iStatic = 10;
+            //nsc.i = 20;
+        }
+
+        private static void FunctionCalls()
+        {
+            int y = StaticClass.i;
+            StaticClass.i = 20;
+            FunctionClass fc = new FunctionClass();
+            fc.FuncTwo(1, "abc", 10f);
+            fc.FuncTwo(b: "abc", a: 1);
+            fc.FuncTwo(10, f: 20f);
+            fc.FuncTwo();
+            int a = 16;
+            int b = 17;
+            int res = 5;
+            fc.AddV3(a, b, ref res);
+            fc.AddV4(a, b, out res);
+            var data = fc.FuncThree();
+        }
+
+        private static void OperatorOverloadingExample()
+        {
+            StudentInfo firstTerm = new StudentInfo(0, 80, 28);
+            firstTerm.Math = 10;
+            firstTerm.Science = 20;
+            StudentInfo secondTerm = new StudentInfo(0, 80, 28);
+            secondTerm.Math = 10;
+            secondTerm.Science = 20;
+            StudentInfo finalTerm = new StudentInfo(0, 80, 28);
+            finalTerm.Math = 101;
+            finalTerm.Science = -1;
+
+            //var totalMin = firstTerm.Min + secondTerm.Min + finalTerm.Min;
+            //var totalMax = firstTerm.Max + secondTerm.Max + finalTerm.Max;
+            //var totalPass = firstTerm.Pass + secondTerm.Pass + finalTerm.Pass;
+            //StudentInfo total = new StudentInfo(totalMin, totalMax, totalPass);
+            //total.Math = firstTerm.Math + secondTerm.Math + finalTerm.Math;
+            //total.Science = firstTerm.Science + secondTerm.Science + finalTerm.Science;
+            //total.English = firstTerm.English + secondTerm.English + finalTerm.English;
+            int i = (10 + 20) * (30 + 40);
+            StudentInfo final = firstTerm + secondTerm + finalTerm - firstTerm + secondTerm;
+            //i++;
+            //firstTerm++;
+            //firstTerm = firstTerm + 5;
+
+            var eq = firstTerm == secondTerm;
         }
 
         private static void PropertiesExample()
