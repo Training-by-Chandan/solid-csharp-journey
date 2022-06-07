@@ -24,11 +24,46 @@ namespace Solid.CSharp.ConsoleApp
                 //FunctionCalls();
                 //StaticAndNonStaticExplanation();
                 //InheritanceExample();
-                InterfaceExample();
+                //InterfaceExample();
+                AbstractExample();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void AbstractExample()
+        {
+            int choice = getChoice();
+            var shape = AbstractShapeFactory(choice);
+            if (shape != null)
+            {
+                shape.GetInput();
+                shape.Area();
+                shape.Perimeter();
+            }
+        }
+
+        private static int getChoice()
+        {
+            Console.WriteLine("Press\n1 for Square\n2 for Rectangle");
+            var choice = Convert.ToInt32(Console.ReadLine());
+            return choice;
+        }
+
+        private static AShape AbstractShapeFactory(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return new ASquare();
+
+                case 2:
+                    return new ARectangle();
+
+                default:
+                    return null;
+            }
         }
 
         private static void InterfaceExample()

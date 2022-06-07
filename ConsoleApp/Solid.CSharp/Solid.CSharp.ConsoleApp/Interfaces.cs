@@ -56,6 +56,11 @@
 
         public void GetInput()
         {
+            _getInput();
+        }
+
+        private void _getInput()
+        {
             Console.WriteLine("Enter the length");
             length = Convert.ToDouble(Console.ReadLine());
         }
