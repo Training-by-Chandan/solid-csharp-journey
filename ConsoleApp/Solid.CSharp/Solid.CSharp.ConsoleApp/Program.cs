@@ -24,11 +24,72 @@ namespace Solid.CSharp.ConsoleApp
                 //FunctionCalls();
                 //StaticAndNonStaticExplanation();
                 //InheritanceExample();
-                InterfaceExample();
+                //InterfaceExample();
+                //AbstractExample();
+                //DelegateExample();
+                EventsExample();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void EventsExample()
+        {
+            Delegates dg = new Delegates();
+            dg.MathHandler += Dg_MathHandler;
+            dg.MathHandler += TestFunction;
+            dg.Run(10, 20);
+        }
+
+        private static void Dg_MathHandler(int a, int b)
+        {
+            Console.WriteLine($"From functionone {a} and {b}");
+        }
+
+        private static void TestFunction(int a, int b)
+        {
+            Console.WriteLine($"From Test Function {a} and {b}");
+        }
+
+        private static void DelegateExample()
+        {
+            Delegates dg = new Delegates();
+            dg.Run();
+        }
+
+        private static void AbstractExample()
+        {
+            int choice = getChoice();
+            var shape = AbstractShapeFactory(choice);
+            if (shape != null)
+            {
+                shape.GetInput();
+                shape.Area();
+                shape.Perimeter();
+            }
+        }
+
+        private static int getChoice()
+        {
+            Console.WriteLine("Press\n1 for Square\n2 for Rectangle");
+            var choice = Convert.ToInt32(Console.ReadLine());
+            return choice;
+        }
+
+        private static AShape AbstractShapeFactory(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return new ASquare();
+
+                case 2:
+                    return new ARectangle();
+
+                default:
+                    return null;
+            }
         }
 
         private static void InterfaceExample()
