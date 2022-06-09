@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Text;
 using Solid.DSharp;
 
@@ -27,11 +28,30 @@ namespace Solid.CSharp.ConsoleApp
                 //InterfaceExample();
                 //AbstractExample();
                 //DelegateExample();
-                EventsExample();
+                //EventsExample();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void TemplatesExample()
+        {
+            var t1 = new Templates<bool, Stack, Circle>();
+
+            var sq1 = new Square();
+            var sq2 = new Square();
+            TemplatesV2.FunctionOne<Square, LivingThings>(sq1, sq2, new Animal(), new Animal());
+        }
+
+        private static void CustomStackImplementationV2()
+        {
+            Console.WriteLine("Enter the size of stack");
+            var size = Convert.ToInt32(Console.ReadLine());
+
+            CustomStack cs = new CustomStack(size);
+
+            CustomStackTemplated<Animal> cs1 = new CustomStackTemplated<Animal>();
         }
 
         private static void EventsExample()

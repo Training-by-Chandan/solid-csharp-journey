@@ -114,9 +114,19 @@
         }
     }
 
-    public class Circle : IShape
+    public class Circle : IShape, IInterfaces
     {
         private double radius;
+
+        public int Add(int a, int b)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Add()
+        {
+            throw new NotImplementedException();
+        }
 
         public void Area()
         {
