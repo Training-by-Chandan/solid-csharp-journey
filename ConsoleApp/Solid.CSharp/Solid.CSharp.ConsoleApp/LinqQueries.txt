@@ -1,0 +1,40 @@
+﻿> #reset 64
+Resetting execution engine.
+Loading context from 'CSharpInteractive.rsp'.
+> using System.Linq;
+> List<string> months = new List<string>() { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+> months
+List<string>(12) { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }
+> from m in months where m.StartsWith("J")
+. ;
+(1,41): error CS0742: A query body must end with a select clause or a group clause
+> from m in months where m.StartsWith("J") select m
+Enumerable.WhereListIterator<string> { "January", "June", "July" }
+> from m in months where m.StartsWith("J") || m.StartsWith("M") select m;
+(1,1): error CS0201: Only assignment, call, increment, decrement, await, and new object expressions can be used as a statement
+> from m in months where m.StartsWith("J") || m.StartsWith("M") select m
+Enumerable.WhereListIterator<string> { "January", "March", "May", "June", "July" }
+> from m in months select m.Substring(0,3).ToUpper()
+Enumerable.WhereSelectListIterator<string, string> { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" }
+> var t = (from m in months select m.Substring(0, 3).ToUpper()).ToList();
+> t
+List<string>(12) { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" }
+> months
+List<string>(12) { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }
+> from m in months select new { Name=m, Length=m.Length, Abb=m.Substring(0,3) }
+Enumerable.WhereSelectListIterator<string, <>f__AnonymousType0#9<string, int, string>> { \{ Name = "January", Length = 7, Abb = "Jan" }, \{ Name = "February", Length = 8, Abb = "Feb" }, \{ Name = "March", Length = 5, Abb = "Mar" }, \{ Name = "April", Length = 5, Abb = "Apr" }, \{ Name = "May", Length = 3, Abb = "May" }, \{ Name = "June", Length = 4, Abb = "Jun" }, \{ Name = "July", Length = 4, Abb = "Jul" }, \{ Name = "August", Length = 6, Abb = "Aug" }, \{ Name = "September", Length = 9, Abb = "Sep" }, \{ Name = "October", Length = 7, Abb = "Oct" }, \{ Name = "November", Length = 8, Abb = "Nov" }, \{ Name = "December", Length = 8, Abb = "Dec" } }
+> 
+> 
+> months.Where(m=>m.StartsWith("J"))
+Enumerable.WhereListIterator<string> { "January", "June", "July" }
+> months.Where(m=>m.StartsWith("J") || m.StartsWith("M"))
+Enumerable.WhereListIterator<string> { "January", "March", "May", "June", "July" }
+> months.Select(m=>m.Substring(0,3))
+Enumerable.WhereSelectListIterator<string, string> { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+> months.Select(m=> new { Name = m, Length = m.Length, Abb = m.Substring(0, 3) })
+Enumerable.WhereSelectListIterator<string, <>f__AnonymousType0#9<string, int, string>> { \{ Name = "January", Length = 7, Abb = "Jan" }, \{ Name = "February", Length = 8, Abb = "Feb" }, \{ Name = "March", Length = 5, Abb = "Mar" }, \{ Name = "April", Length = 5, Abb = "Apr" }, \{ Name = "May", Length = 3, Abb = "May" }, \{ Name = "June", Length = 4, Abb = "Jun" }, \{ Name = "July", Length = 4, Abb = "Jul" }, \{ Name = "August", Length = 6, Abb = "Aug" }, \{ Name = "September", Length = 9, Abb = "Sep" }, \{ Name = "October", Length = 7, Abb = "Oct" }, \{ Name = "November", Length = 8, Abb = "Nov" }, \{ Name = "December", Length = 8, Abb = "Dec" } }
+> months.Select(p=>p.Substring(0,3)).OrderByDescending(p=>p)
+OrderedEnumerable<string, string> { "Sep", "Oct", "Nov", "May", "Mar", "Jun", "Jul", "Jan", "Feb", "Dec", "Aug", "Apr" }
+> months.Select(p => p.Substring(0, 3)).GroupBy(p => p[0])
+GroupedEnumerable<string, char, string> { Lookup<char, string>.Grouping { "Jan", "Jun", "Jul" }, Lookup<char, string>.Grouping { "Feb" }, Lookup<char, string>.Grouping { "Mar", "May" }, Lookup<char, string>.Grouping { "Apr", "Aug" }, Lookup<char, string>.Grouping { "Sep" }, Lookup<char, string>.Grouping { "Oct" }, Lookup<char, string>.Grouping { "Nov" }, Lookup<char, string>.Grouping { "Dec" } }
+> 
