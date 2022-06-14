@@ -1,0 +1,162 @@
+﻿namespace Solid.DSharp
+{
+    public class FileHandling
+    {
+        //path handling
+        //directory handling
+        //File handling
+    }
+}
+
+
+Microsoft (R) Visual C# Interactive Compiler version 4.2.0-4.22252.24 ()
+Loading context from 'CSharpInteractive.rsp'.
+Type "#help" for more information.
+> using System.IO;
+> Path.GetFullPath("");
+System.ArgumentException: The path is not of a legal form.
+  + System.IO.Path.NewNormalizePath(string, int, bool)
+  + System.IO.Path.NormalizePath(string, bool, int, bool)
+  + System.IO.Path.GetFullPathInternal(string)
+  + System.IO.Path.GetFullPath(string)
+> Path.GetFullPath("test.txt");
+> Path.GetFullPath("test.txt")
+"C:\\Users\\Chand\\test.txt"
+> Path.GetFullPath("\\test.txt")
+"C:\\test.txt"
+> var path=Path.GetFullPath("test.txt");
+> path
+"C:\\Users\\Chand\\test.txt"
+> Path.GetFileName(path)
+"test.txt"
+> Path.GetFileNameWithoutExtension(path)
+"test"
+> Path.GetExtension(path)
+".txt"
+> Path.GetPathRoot(path)
+"C:\\"
+> Path.GetDirectoryName(path)
+"C:\\Users\\Chand"
+> var directory = Path.GetDirectoryName(path);
+> directory
+"C:\\Users\\Chand"
+> Path.Combine(directory,"download","test","abc")
+"C:\\Users\\Chand\\download\\test\\abc"
+> Path.GetFullPath("D:\\Test\\abc\\xyz\\a.txt")
+"D:\\Test\\abc\\xyz\\a.txt"
+> Path.Combine(directory, "download", "test", "abc","a.txt")
+"C:\\Users\\Chand\\download\\test\\abc\\a.txt"
+> Path.Combine(directory, "download", "test", "abc.txt","a.txt")
+"C:\\Users\\Chand\\download\\test\\abc.txt\\a.txt"
+> path= "C:\\Users\\Chand\\download\\test\\abc.txt\\a.txt"
+"C:\\Users\\Chand\\download\\test\\abc.txt\\a.txt"
+> path
+"C:\\Users\\Chand\\download\\test\\abc.txt\\a.txt"
+> 
+> directory = Path.GetDirectoryName(path);
+> directory
+"C:\\Users\\Chand\\download\\test\\abc.txt"
+> var extension = Path.GetExtension(path);
+> var newFileName = "newfile";
+> Path.Combine(directory,newFileName+extension)
+"C:\\Users\\Chand\\download\\test\\abc.txt\\newfile.txt"
+> Path.DirectorySeparatorChar
+'\\'
+> Path.GetTempFileName()
+"C:\\Users\\Chand\\AppData\\Local\\Temp\\tmp558F.tmp"
+> File.Delete("C:\\Users\\Chand\\AppData\\Local\\Temp\\tmp558F.tmp")
+> Path.GetTempPath()
+"C:\\Users\\Chand\\AppData\\Local\\Temp\\"
+> Path.GetInvalidPathChars()
+char[36] { '"', '<', '>', '|', '\0', '\u0001', '\u0002', '\u0003', '\u0004', '\u0005', '\u0006', '\a', '\b', '\t', '\n', '\v', '\f', '\r', '\u000e', '\u000f', '\u0010', '\u0011', '\u0012', '\u0013', '\u0014', '\u0015', '\u0016', '\u0017', '\u0018', '\u0019', '\u001a', '\u001b', '\u001c', '\u001d', '\u001e', '\u001f' }
+> 
+> 
+> 
+> 
+> 
+> 
+> Path.GetFullPath("test.txt")
+"C:\\Users\\Chand\\test.txt"
+> File.ReadAllBytes(Path.GetFullPath("test.txt"))
+byte[35] { 103, 97, 115, 100, 106, 103, 102, 97, 106, 115, 102, 100, 103, 97, 115, 100, 103, 102, 97, 106, 115, 103, 102, 97, 104, 115, 100, 102, 103, 97, 106, 115, 100, 102, 104 }
+> File.ReadAllLines(Path.GetFullPath("test.txt"))
+string[1] { "gasdjgfajsfdgasdgfajsgfahsdfgajsdfh" }
+> File.ReadAllLines(Path.GetFullPath("test.txt"))
+string[2] { "gasdjgfajsfdgasdgf", "ajsgfahsdfgajsdfh" }
+> File.ReadAllText("test.txt")
+"gasdjgfajsfdgasdgf\r\najsgfahsdfgajsdfh"
+> File.ReadAllText("\\test.txt")
+System.IO.FileNotFoundException: Could not find file 'C:\test.txt'.
+  + System.IO.__Error.WinIOError(int, string)
+  + System.IO.FileStream.Init(string, System.IO.FileMode, System.IO.FileAccess, int, bool, System.IO.FileShare, int, System.IO.FileOptions, Microsoft.Win32.Win32Native.SECURITY_ATTRIBUTES, string, bool, bool, bool)
+  + System.IO.FileStream..ctor(string, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare, int, System.IO.FileOptions, string, bool, bool, bool)
+  + System.IO.StreamReader..ctor(string, System.Text.Encoding, bool, int, bool)
+  + System.IO.File.InternalReadAllText(string, System.Text.Encoding, bool)
+> File.Exists("text.txt")
+false
+> File.Exists("test.txt")
+true
+> File.Exists("D:\\test.txt")
+true
+> File.Create("D:\\test.txt")
+FileStream { CanRead=true, CanRead=true, CanSeek=true, CanSeek=true, CanTimeout=false, CanWrite=true, CanWrite=true, Handle=[3516], IsAsync=false, Length=0, Length=0, Name="D:\\test.txt", Position=0, Position=0, ReadTimeout=!<InvalidOperationException>, SafeFileHandle=SafeFileHandle { handle=[3516], IsClosed=false, IsInvalid=false, IsInvalid=false }, WriteTimeout=!<InvalidOperationException> }
+> var file = File.Create("d:\\abc.txt");
+> file.BeginWrite(new byte[2] { 103, 97 }, 0, 2, null, null);
+> file.Dispose();
+> var file = File.Create("d:\\abc.txt");
+> file.BeginWrite(new byte[] { 103, 97, 104, 98, 103, 97, 104, 98 }, 2, 4, null, null);
+> file.Dispose()
+> var file = File.Create("d:\\abc.txt");
+> file.BeginWrite(new byte[] { 103, 97, 104, 98, 103, 97, 104, 98 }, 0, 8, null, null);
+> file.Dispose()
+> var fileStream = File.AppendText("d:\\abcd.txt");
+> fileStream.Write("Hi this is test");
+> fileStream.Dispose();
+> var fileStream = File.AppendText("d:\\abcd.txt");
+> fileStream.WriteLine("New line added");
+> fileStream.Dispose();
+> File.AppendAllText("D:\\abcd,txt","a new content is added form appendalltext")
+> File.AppendAllText("D:\\abcd.txt", "a new content is added form appendalltext")
+> File.Delete("d:\\abcd,txt")
+> FileInfo fi = new FileInfo("D:\\abcd.txt");
+> fi.Extension
+".txt"
+> fi.LastAccessTime
+[14/06/2022 17:19:58]
+> fi.Length
+72
+> fi.Length
+72
+> fi.Refresh();
+> fi.Length
+5400
+> 
+> File.ReadAllText("d:\\abcd.txt")
+"Hi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form appendalltextHi this is testNew line added\r\na new content is added form ...
+> 
+> 
+> 
+> 
+> 
+> Directory.CreateDirectory("d:\\Projects")
+[Projects]
+> Directory.CreateDirectory("d:\\ProjectsNew")
+[ProjectsNew]
+> Directory.EnumerateDirectories("d:\\projects")
+FileSystemEnumerableIterator<string> { "d:\\projects\\A1SpareParts", "d:\\projects\\ABP", "d:\\projects\\ABP-Samples", "d:\\projects\\Academia", "d:\\projects\\actions-cheat-sheet", "d:\\projects\\Agrisync", "d:\\projects\\Bijayesh Training", "d:\\projects\\Bitbucket", "d:\\projects\\Broadway", "d:\\projects\\CrmX", "d:\\projects\\Demo-By-Chandan", "d:\\projects\\DocRepo", "d:\\projects\\Dremio", "d:\\projects\\Euroquip", "d:\\projects\\Flutter", "d:\\projects\\GH", "d:\\projects\\github-action-fb-func", "d:\\projects\\githubactions", "d:\\projects\\GithubContribution", "d:\\projects\\goLang", "d:\\projects\\hacktober", "d:\\projects\\IdentityServers", "d:\\projects\\IOT", "d:\\projects\\IS", "d:\\projects\\Jira-App", "d:\\projects\\kubernetes-ingress", "d:\\projects\\LearningManagementSystem", "d:\\projects\\MajorProject", "d:\\projects\\Material", "d:\\projects\\MAUI", "d:\\projects\\Migrations", "d:\\projects\\nginx-openid-connect", "d:\\projects\\Personal", "d:\\projects\\ProjectEulerSolutions", "d:\\proj...
+> Directory.EnumerateDirectories("d:\\")
+FileSystemEnumerableIterator<string> { "d:\\$RECYCLE.BIN", "d:\\.ssh", "d:\\2077-12-11 Pantanki Engegment", "d:\\Academics", "d:\\AZ-204", "d:\\csSnippet", "d:\\demo", "d:\\Downloaded Softwares", "d:\\Downloads", "d:\\FastStone Capture 6.6 + serial(masoodalam51)", "d:\\Flutter", "d:\\Games", "d:\\GroupCode", "d:\\helm-charts", "d:\\ImageClassification", "d:\\Jira", "d:\\minergate", "d:\\Minikube", "d:\\My Drive", "d:\\ngrok", "d:\\np++", "d:\\old pc", "d:\\open ssl", "d:\\pdfrecovered", "d:\\personal", "d:\\Program Files", "d:\\Projects", "d:\\pscale", "d:\\Published", "d:\\RajeshKumari", "d:\\Recorded", "d:\\recovered", "d:\\Shared", "d:\\System Volume Information", "d:\\Tutorials", "d:\\var", "d:\\WindowsApps" }
+> Directory.EnumerateDirectories("")
+System.ArgumentException: The path is not of a legal form.
+  + System.IO.Path.NewNormalizePath(string, int, bool)
+  + System.IO.Path.NormalizePath(string, bool, int, bool)
+  + System.IO.Path.GetFullPathInternal(string)
+  + FileSystemEnumerableIterator<TSource>..ctor(string, string, string, System.IO.SearchOption, SearchResultHandler<TSource>, bool)
+  + System.IO.Directory.EnumerateDirectories(string)
+> Directory.EnumerateFiles("d:\\")
+FileSystemEnumerableIterator<string> { "d:\\7DAE5BAD9597", "d:\\abc.txt", "d:\\abcd.txt", "d:\\anc.txt", "d:\\assembly.txt", "d:\\automated message sample.csv", "d:\\BW6PM_Desktop.bak", "d:\\Changed files.zip", "d:\\ci-workflow-staging.json", "d:\\cost-analysis.csv", "d:\\data.db", "d:\\Detail_Enrollment_75157101_201908_en.csv", "d:\\HaloBusinessDb.bak", "d:\\IMG_20190622_130548.jpg", "d:\\IMG_3422.JPG", "d:\\key", "d:\\key.txt", "d:\\list.txt", "d:\\logging.json", "d:\\minikube-windows-amd64.exe", "d:\\network.txt", "d:\\package-lock.json", "d:\\path.csv", "d:\\pauload.json", "d:\\projects_info.txt", "d:\\SentimentData.csv", "d:\\Sitecore license.zip", "d:\\SMSSpamCollection-org.tsv", "d:\\ssh.ppk", "d:\\test.txt", "d:\\testDbBack.bak" }
+> Directory.GetParent("d:\\projects")
+[d:\]
+> File.Copy("D:\\abcd.txt","D:\\text.txt")
+> File.Copy("d:\\path.csv","d:\\abc.csv")
+> 
