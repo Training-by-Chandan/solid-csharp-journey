@@ -7,12 +7,5 @@
 	  <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="FileHandling.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="FileHandling.txt" />
-  </ItemGroup>
 
 </Project>

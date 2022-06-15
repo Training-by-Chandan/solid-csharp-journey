@@ -30,11 +30,18 @@ namespace Solid.CSharp.ConsoleApp
                 //DelegateExample();
                 //EventsExample();
                 //castToInt("10");
-                ExceptionHandling();
+                //ExceptionHandling();
+                ParallelProgExample();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void ParallelProgExample()
+        {
+            ParallelProgramming pp = new ParallelProgramming();
+            pp.Run();
         }
 
         private static void ExceptionHandling()
@@ -75,7 +82,6 @@ namespace Solid.CSharp.ConsoleApp
             //}
             catch (TestException ex)
             {
-
                 ex.WriteInFile();
                 Console.WriteLine("Test exception called, sms sent");
             }
