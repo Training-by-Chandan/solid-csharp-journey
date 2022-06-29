@@ -12,7 +12,7 @@ namespace Solid.CSharp.ConsoleApp
             var res = "n";
             do
             {
-                //basic();
+                basic();
                 //dataTypes();
                 //ControlStatmentsExample();
                 //LoopingStatements();
@@ -31,7 +31,7 @@ namespace Solid.CSharp.ConsoleApp
                 //EventsExample();
                 //castToInt("10");
                 //ExceptionHandling();
-                ParallelProgExample();
+                //ParallelProgExample();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
