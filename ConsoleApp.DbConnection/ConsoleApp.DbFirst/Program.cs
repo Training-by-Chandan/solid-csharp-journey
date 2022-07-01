@@ -15,6 +15,7 @@ namespace ConsoleApp.DbFirst
             {
                 try
                 {
+                    DbCon.GetTeachers();
                     var choice = PrintChoices();
                     Run(choice);
                 }

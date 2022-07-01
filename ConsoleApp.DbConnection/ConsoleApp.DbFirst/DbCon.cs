@@ -1,5 +1,6 @@
 ﻿using ConsoleApp.DbFirst.Data;
 using ConsoleApp.DbFirst.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConsoleApp.DbFirst
 {
@@ -9,13 +10,15 @@ namespace ConsoleApp.DbFirst
 
         public static void GetAll()
         {
-            var data = db.Students.ToList();
+            var data = db.Students.Include(p => p.Teachers).ToList();
             foreach (var item in data)
             {
+                //var teacher = db.Teachers.Find(item.TeacherId);
                 Console.WriteLine($"Id : {item.Id}");
                 Console.WriteLine($"Name : {item.Name}");
                 Console.WriteLine($"Email : {item.Email}");
                 Console.WriteLine($"Phone : {item.Phone}");
+                Console.WriteLine($"Teacher : {item.Teachers.Name}");
                 Console.WriteLine("========================================");
             }
         }
@@ -83,6 +86,18 @@ namespace ConsoleApp.DbFirst
             else
             {
                 Console.WriteLine("Record not found");
+            }
+        }
+
+        public static void GetTeachers()
+        {
+            var teachers = db.Teachers.Include(p => p.Students).ToList();
+            foreach (var item in teachers)
+            {
+                Console.WriteLine($"Id : {item.Id}");
+                Console.WriteLine($"Name : {item.Name}");
+                Console.WriteLine($"Email : {item.Email}");
+                Console.WriteLine($"Number of Students : {item.Students.Count}");
             }
         }
     }
