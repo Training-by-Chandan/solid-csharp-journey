@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConsoleApp.DbFirst.Migrations
 {
     [DbContext(typeof(DefaultContext))]
-    [Migration("20220630115846_DobAdded")]
-    partial class DobAdded
+    [Migration("20220703111545_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,7 +48,12 @@ namespace ConsoleApp.DbFirst.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TeacherId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TeacherId");
 
                     b.ToTable("Students");
                 });
@@ -72,6 +77,22 @@ namespace ConsoleApp.DbFirst.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teachers");
+                });
+
+            modelBuilder.Entity("ConsoleApp.DbFirst.Models.Student", b =>
+                {
+                    b.HasOne("ConsoleApp.DbFirst.Models.Teacher", "Teachers")
+                        .WithMany("Students")
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Teachers");
+                });
+
+            modelBuilder.Entity("ConsoleApp.DbFirst.Models.Teacher", b =>
+                {
+                    b.Navigation("Students");
                 });
 #pragma warning restore 612, 618
         }

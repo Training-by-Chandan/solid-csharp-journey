@@ -80,12 +80,17 @@ namespace ConsoleApp.DbFirst.Migrations
             modelBuilder.Entity("ConsoleApp.DbFirst.Models.Student", b =>
                 {
                     b.HasOne("ConsoleApp.DbFirst.Models.Teacher", "Teachers")
-                        .WithMany()
+                        .WithMany("Students")
                         .HasForeignKey("TeacherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Teachers");
+                });
+
+            modelBuilder.Entity("ConsoleApp.DbFirst.Models.Teacher", b =>
+                {
+                    b.Navigation("Students");
                 });
 #pragma warning restore 612, 618
         }
