@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp.DbConnection", "ConsoleApp.DbConnection\ConsoleApp.DbConnection.csproj", "{C2831E54-AE91-49E6-BE33-37A0398480D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.DbFirst", "ConsoleApp.DbFirst\ConsoleApp.DbFirst.csproj", "{45E166F6-2079-410F-ADC1-5566DEC8C382}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp.DbFirst", "ConsoleApp.DbFirst\ConsoleApp.DbFirst.csproj", "{45E166F6-2079-410F-ADC1-5566DEC8C382}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp", "WinFormsApp\WinFormsApp.csproj", "{0150723A-4F00-4FDA-8BD5-2BE3FE3EAACC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{45E166F6-2079-410F-ADC1-5566DEC8C382}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45E166F6-2079-410F-ADC1-5566DEC8C382}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45E166F6-2079-410F-ADC1-5566DEC8C382}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0150723A-4F00-4FDA-8BD5-2BE3FE3EAACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0150723A-4F00-4FDA-8BD5-2BE3FE3EAACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0150723A-4F00-4FDA-8BD5-2BE3FE3EAACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0150723A-4F00-4FDA-8BD5-2BE3FE3EAACC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
