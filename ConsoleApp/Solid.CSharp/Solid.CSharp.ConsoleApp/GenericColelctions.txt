@@ -1,0 +1,35 @@
+﻿> dictStr
+Dictionary<string, string>(2) { { "A", "Aeroplane" }, { "B", "Ball" } }
+> dictStr.Add("aa","")
+> dictStr
+Dictionary<string, string>(3) { { "A", "Aeroplane" }, { "B", "Ball" }, { "aa", "" } }
+> 
+> 
+> 
+> 
+> 
+> HashSet<int> hs = new HashSet<int>();
+> hs.Add(1)
+true
+> hs.Add(20);
+> hs.Add(10)
+true
+> hs.Add(20)
+false
+> hs
+HashSet<int>(Count = 3) { 1, 20, 10 }
+> 
+> 
+> 
+> 
+> intList('A');
+(1,1): error CS1955: Non-invocable member 'intList' cannot be used like a method.
+> intList.Add('A')
+> intList
+List<int>(3) { 1, 1, 65 }
+> intList.Add((int)2.05f)
+> intList
+List<int>(4) { 1, 1, 65, 2 }
+> intList.Add(2.05f)
+(1,13): error CS1503: Argument 1: cannot convert from 'float' to 'int'
+> 

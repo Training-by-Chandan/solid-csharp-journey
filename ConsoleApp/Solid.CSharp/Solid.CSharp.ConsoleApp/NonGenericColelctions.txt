@@ -1,0 +1,142 @@
+﻿Microsoft (R) Visual C# Interactive Compiler version 4.2.0-4.22252.24 ()
+Loading context from 'CSharpInteractive.rsp'.
+Type "#help" for more information.
+> using System.Collections;
+> ArrayList al = new ArrayList();
+> al
+ArrayList(0) { }
+> al.Add(1);
+> al.Add("a");
+> al
+ArrayList(2) { 1, "a" }
+> al.AddRange(al)
+> al
+ArrayList(4) { 1, "a", 1, "a" }
+> al.AddRange(al)
+> al
+ArrayList(8) { 1, "a", 1, "a", 1, "a", 1, "a" }
+> var t = al.Clone();
+> t
+ArrayList(8) { 1, "a", 1, "a", 1, "a", 1, "a" }
+> al.Contains(2)
+false
+> al.Contains(1)
+true
+> al.Contains("a")
+true
+> al.Contains('a')
+false
+> al.Capacity
+8
+> al.Capacity=8
+8
+> al.Capacity = 10;
+> al
+ArrayList(8) { 1, "a", 1, "a", 1, "a", 1, "a" }
+> al.Add(2)
+8
+> al.Add(10)
+9
+> al
+ArrayList(10) { 1, "a", 1, "a", 1, "a", 1, "a", 2, 10 }
+> al.Capacity
+10
+> al.Add("abc")
+10
+> al.Capacity
+20
+> al.IndexOf(2)
+8
+> al.IndexOf(1)
+0
+> al.Count
+11
+> al.LastIndexOf(1)
+6
+> al.Remove(1)
+> al
+ArrayList(10) { "a", 1, "a", 1, "a", 1, "a", 2, 10, "abc" }
+> al.Capacity
+20
+> al.Remove(1)
+> al
+ArrayList(9) { "a", "a", 1, "a", 1, "a", 2, 10, "abc" }
+> al.RemoveAt(6)
+> al
+ArrayList(8) { "a", "a", 1, "a", 1, "a", 10, "abc" }
+> al.Reverse()
+> al
+ArrayList(8) { "abc", 10, "a", 1, "a", 1, "a", "a" }
+> al.Sort()
+System.InvalidOperationException: Failed to compare two elements in the array.
+  + System.Array.SorterObjectArray.IntrospectiveSort(int, int)
+  + System.Array.Sort(System.Array, System.Array, int, int, System.Collections.IComparer)
+  + System.Collections.ArrayList.Sort(int, int, System.Collections.IComparer)
+> al
+ArrayList(8) { "abc", 10, "a", 1, "a", 1, "a", "a" }
+> al[3]
+1
+> al[0]
+"abc"
+> al[2]
+"a"
+> al.ToArray()
+object[8] { "abc", 10, "a", 1, "a", 1, "a", "a" }
+> al.TrimToSize()
+> al.Add(null)
+8
+> al
+ArrayList(9) { "abc", 10, "a", 1, "a", 1, "a", "a", null }
+> al.TrimToSize()
+> al
+ArrayList(9) { "abc", 10, "a", 1, "a", 1, "a", "a", null }
+> al.ToString()
+"System.Collections.ArrayList"
+> 
+> 
+> 
+> 
+> SortedList sl = new SortedList();
+> sl.Add(1,"Sunday")
+> sl
+SortedList(1) { { 1, "Sunday" } }
+> sl.Add(2,"Monday")
+> sl
+SortedList(2) { { 1, "Sunday" }, { 2, "Monday" } }
+> sl.Add(1,"Tuesday")
+System.ArgumentException: Item has already been added. Key in dictionary: '1'  Key being added: '1'
+  + System.Collections.SortedList.Add(object, object)
+> sl.Add("a","Tuesday")
+System.InvalidOperationException: Failed to compare two elements in the array.
+  + System.Array.BinarySearch(System.Array, int, int, object, System.Collections.IComparer)
+  + System.Collections.SortedList.Add(object, object)
+> SortedList sl1 = new SortedList()
+.     ;
+> sl1.Add("a", "Apple");
+> sl1.Add(1,"Sunday")
+System.InvalidOperationException: Failed to compare two elements in the array.
+  + System.Array.BinarySearch(System.Array, int, int, object, System.Collections.IComparer)
+  + System.Collections.SortedList.Add(object, object)
+> sl1.Add("b","test")
+> sl1
+SortedList(2) { { "a", "Apple" }, { "b", "test" } }
+> sl1.Add("aa","something")
+> sl1
+SortedList(3) { { "a", "Apple" }, { "aa", "something" }, { "b", "test" } }
+> sl
+SortedList(2) { { 1, "Sunday" }, { 2, "Monday" } }
+> sl.Add(-1,"Null")
+> sl
+SortedList(3) { { -1, "Null" }, { 1, "Sunday" }, { 2, "Monday" } }
+> sl.ContainsValue("sunday")
+false
+> sl
+SortedList(3) { { -1, "Null" }, { 1, "Sunday" }, { 2, "Monday" } }
+> sl.ContainsValue("Sunday")
+true
+> sl.GetKeyList()
+SortedList.KeyList(3) { -1, 1, 2 }
+> sl.GetValueList()
+SortedList.ValueList(3) { "Null", "Sunday", "Monday" }
+> 
+> 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Text;
 using Solid.DSharp;
 
@@ -11,7 +12,7 @@ namespace Solid.CSharp.ConsoleApp
             var res = "n";
             do
             {
-                //basic();
+                basic();
                 //dataTypes();
                 //ControlStatmentsExample();
                 //LoopingStatements();
@@ -27,11 +28,106 @@ namespace Solid.CSharp.ConsoleApp
                 //InterfaceExample();
                 //AbstractExample();
                 //DelegateExample();
-                EventsExample();
+                //EventsExample();
+                //castToInt("10");
+                //ExceptionHandling();
+                //ParallelProgExample();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        private static void ParallelProgExample()
+        {
+            ParallelProgramming pp = new ParallelProgramming();
+            pp.Run();
+        }
+
+        private static void ExceptionHandling()
+        {
+            try
+            {
+                StudentInfo si = new StudentInfo();
+                Console.WriteLine("Enter the marks of math");
+                si.Math = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("Enter the size of an array");
+                var size = Convert.ToInt32(Console.ReadLine());
+                int[] arr = new int[size];
+                for (int i = 0; i < 5; i++)
+                {
+                    Console.WriteLine("Enter the number");
+                    var input = Console.ReadLine();
+                    var num = castToInt(input);
+                    arr[i] = num;
+                }
+            }
+            catch (FormatException ex)
+            {
+                //write the code to log this in file
+                var filename = "log.txt";
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine(DateTime.Now.ToString());
+                sb.AppendLine(ex.Message);
+                sb.AppendLine("__________________________________");
+                sb.AppendLine(ex.ToString());
+                sb.AppendLine("==================================================\n");
+
+                File.AppendAllText(filename, sb.ToString());
+            }
+            //catch (NUmber10Exception ex)
+            //{
+            //    Console.WriteLine("Number 10 exception called, email sent");
+            //}
+            catch (TestException ex)
+            {
+                ex.WriteInFile();
+                Console.WriteLine("Test exception called, sms sent");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            //finally
+            //{
+            //    Console.WriteLine("Evenything went good");
+            //}
+        }
+
+        private static int castToInt(string input)
+        {
+            var num = Convert.ToInt32(input);
+
+            if (num == 10)
+            {
+                throw new NUmber10Exception("Number cannot be 10");
+            }
+            if (num == 5)
+            {
+                throw new TestException();
+            }
+
+            return num;
+        }
+
+        private static void TemplatesExample()
+        {
+            var t1 = new Templates<bool, Stack, Circle>();
+
+            var sq1 = new Square();
+            var sq2 = new Square();
+            TemplatesV2.FunctionOne<Square, LivingThings>(sq1, sq2, new Animal(), new Animal());
+        }
+
+        private static void CustomStackImplementationV2()
+        {
+            Console.WriteLine("Enter the size of stack");
+            var size = Convert.ToInt32(Console.ReadLine());
+
+            CustomStack cs = new CustomStack(size);
+
+            CustomStackTemplated<Animal> cs1 = new CustomStackTemplated<Animal>();
         }
 
         private static void EventsExample()
