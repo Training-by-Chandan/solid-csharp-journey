@@ -85,7 +85,7 @@ namespace Solid.DSharp
             {
                 if (value > _max)
                 {
-                    _math = _max;
+                    throw new Exception($"Number cannot be greater than {_max}");
                 }
                 else if (value < _min)
                 {
