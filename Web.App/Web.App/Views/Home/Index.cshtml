@@ -1,8 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    int length = 10;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome Solid CSharp Journey</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@*@Html.Partial("~/Views/Partials/_welcome.cshtml")*@
+<partial name="~/Views/Partials/_welcome.cshtml" />
+
+<div class="row">
+    <div class="col-lg-6">
+        <partial name="~/Views/Partials/_welcome.cshtml" />
+    </div>
+    <div class="col-lg-6">
+        <partial name="~/Views/Partials/_welcome.cshtml" />
+    </div>
 </div>
