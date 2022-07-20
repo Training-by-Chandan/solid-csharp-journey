@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Web.App.Models
 {
@@ -16,5 +17,17 @@ namespace Web.App.Models
         public string Email { get; set; }
 
         public string? Phone { get; set; }
+
+        public int? ClassId { get; set; }
+
+        [ForeignKey("ClassId")]
+        public virtual Classes? Classes { get; set; }
+    }
+
+    public class Classes
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }
