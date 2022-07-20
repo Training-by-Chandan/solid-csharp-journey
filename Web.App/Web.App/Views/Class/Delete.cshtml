@@ -1,0 +1,23 @@
+﻿@model Classes
+
+<div class="row">
+   <form method="post" action="/class/delete">
+       <h1>Are you sure you want to delete this record?</h1>
+       <input type="hidden" asp-for="Id" />
+       <div class="form-group">
+           <label class="control-label">Name</label>
+           <input asp-for="Name" type="text" class="form-control" name="Name" disabled />
+       </div>
+        <div class="form-group">
+           <label class="control-label">Description</label>
+           <textarea asp-for="Description" class="form-control" name="Description" disabled></textarea>
+       </div>
+       <div class="form-group">
+           &nbsp;
+       </div>
+        <div class="form-group">
+            <a href="/class/index" class="btn btn-primary">Back to Index</a>
+           <input type="submit" value="Delete" class="btn btn-success" />
+       </div>
+   </form>
+</div>
