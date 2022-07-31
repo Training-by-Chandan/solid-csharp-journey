@@ -67,4 +67,20 @@ namespace Web.App.Controllers
             return RedirectToAction("Index");
         }
     }
+
+    public class TestController : ClassController
+    {
+        public TestController(ApplicationDbContext db) : base(db)
+        {
+        }
+
+        public void AddLog()
+        {
+        }
+
+        public IActionResult Test()
+        {
+            return View();
+        }
+    }
 }

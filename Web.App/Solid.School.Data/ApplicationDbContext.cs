@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Web.App.Models;
+using Solid.School.Models;
 
-namespace Web.App.Data
+namespace Solid.School.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -12,7 +12,5 @@ namespace Web.App.Data
         }
 
         public DbSet<Student> Students { get; set; }
-        public DbSet<Classes> Classes { get; set; }
-        public DbSet<Teacher> Teachers { get; set; }
     }
 }

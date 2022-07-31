@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Web.App.Models
 {
-    public class Student
+    public class Teacher
     {
         public int Id { get; set; }
 
@@ -23,4 +23,5 @@ namespace Web.App.Models
         [ForeignKey("ClassId")]
         public virtual Classes? Classes { get; set; }
     }
+
 }
