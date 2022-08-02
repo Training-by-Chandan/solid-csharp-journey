@@ -1,4 +1,5 @@
-﻿using Solid.School.Repository;
+﻿using Solid.School.Models;
+using Solid.School.Repository;
 using Solid.School.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ namespace Solid.School.Services
 {
     public interface IStudentService
     {
+        (bool, string) Create(StudentCreateViewModel model);
+
         List<StudentViewModel> GetAll();
     }
 
@@ -32,10 +35,33 @@ namespace Solid.School.Services
                 Id = p.Id,
                 Email = p.Email,
                 Name = p.Name,
-                PhoneNumber = p.PhoneNumber
+                PhoneNumber = p.PhoneNumber,
+                ClassId = p.ClassId,
+                ClassName = p.Class == null ? "" : p.Class.Description
             }).ToList();
 
             return ret;
+        }
+
+        public (bool, string) Create(StudentCreateViewModel model)
+        {
+            try
+            {
+                var student = new Student()
+                {
+                    Name = model.Name,
+                    Email = model.Email,
+                    CreatedDate = DateTime.Now,
+                    PhoneNumber = model.PhoneNumber,
+                    ClassId = model.ClassId
+                };
+
+                return studentRepository.Create(student);
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
         }
     }
 }

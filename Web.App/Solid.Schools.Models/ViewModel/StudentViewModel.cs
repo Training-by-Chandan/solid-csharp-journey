@@ -1,10 +1,25 @@
-﻿namespace Solid.School.ViewModel
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Solid.School.ViewModel
 {
-    public class StudentViewModel
+    public class StudentViewModel : StudentCreateViewModel
     {
         public int Id { get; set; }
+
+        [Display(Name = "Class Name")]
+        public string ClassName { get; set; }
+    }
+
+    public class StudentCreateViewModel
+    {
         public string Name { get; set; }
+
+        [Display(Name = "Email Address")]
         public string Email { get; set; }
-        public string PhoneNumber { get; set; } //+977-9810315930
+
+        [Display(Name = "Mobile Number")]
+        public string PhoneNumber { get; set; }
+
+        public int ClassId { get; set; }
     }
 }

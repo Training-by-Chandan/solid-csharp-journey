@@ -56,9 +56,19 @@ namespace Solid.School
 
         private static void DependencyConfig(IServiceCollection services)
         {
+            #region Repository
+
             services.AddTransient<IStudentRepository, StudentRepository>();
+            services.AddTransient<IClassRepository, ClassRepository>();
+
+            #endregion Repository
+
+            #region Services
 
             services.AddTransient<IStudentService, StudentService>();
+            services.AddTransient<IClassService, ClassService>();
+
+            #endregion Services
         }
     }
 }
