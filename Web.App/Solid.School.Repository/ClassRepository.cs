@@ -27,12 +27,12 @@ namespace Solid.School.Repository
 
         public IQueryable<Class> GetAll()
         {
-            return db.Classes;
+            return db.Classes.Where(p => !p.IsDeleted);
         }
 
         public Class GetById(int id)
         {
-            return db.Classes.Find(id);
+            return db.Classes.FirstOrDefault(p => !p.IsDeleted && p.Id == id);
         }
 
         public (bool, string) Create(Class model)

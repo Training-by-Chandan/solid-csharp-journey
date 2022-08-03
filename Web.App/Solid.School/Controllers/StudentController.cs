@@ -7,12 +7,15 @@ namespace Solid.School.Controllers
     public class StudentController : Controller
     {
         private readonly IStudentService studentService;
+        private readonly IClassService classService;
 
         public StudentController(
-            IStudentService studentService
+            IStudentService studentService,
+            IClassService classService
             )
         {
             this.studentService = studentService;
+            this.classService = classService;
         }
 
         public IActionResult Index()
@@ -23,6 +26,7 @@ namespace Solid.School.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.classlist = classService.GetDropDownItems();
             return View();
         }
 

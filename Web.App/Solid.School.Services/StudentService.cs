@@ -37,7 +37,7 @@ namespace Solid.School.Services
                 Name = p.Name,
                 PhoneNumber = p.PhoneNumber,
                 ClassId = p.ClassId,
-                ClassName = p.Class == null ? "" : p.Class.Description
+                ClassName = p.Class == null ? "" : p.Class.Name
             }).ToList();
 
             return ret;
