@@ -29,6 +29,28 @@ namespace Solid.School.Controllers
             return View();
         }
 
+        public IActionResult CookieSet(string key, string value)
+        {
+            Response.Cookies.Append(key, value, new CookieOptions()
+            {
+                // Expires = DateTime.Now.AddSeconds(20),
+                //Path = "/Home/Privacy",
+                Domain = ".chandanbhagat.com.np",
+            });
+            return View();
+        }
+
+        public IActionResult SessionSet(string key, string value)
+        {
+            HttpContext.Session.SetString(key, value);
+            return View();
+        }
+
+        public IActionResult SessionGet()
+        {
+            return View();
+        }
+
         public IActionResult ListStudents()
         {
             var data = studentService.GetAll();
