@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Solid.School.Services;
 using Solid.School.ViewModel;
 
 namespace Solid.School.Controllers
 {
+    [Authorize(Roles = StrConst.Roles.Admin)]
     public class StudentController : Controller
     {
         private readonly IStudentService studentService;
@@ -37,7 +39,7 @@ namespace Solid.School.Controllers
             {
                 var res = studentService.Create(model);
                 if (res.Item1)
-                    return RedirectToAction("Index");
+                    return RedirectToAction(nameof(Index));
             }
             return View(model);
         }

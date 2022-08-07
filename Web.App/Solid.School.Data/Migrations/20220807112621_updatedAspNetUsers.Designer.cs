@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Solid.School.Data;
 
@@ -11,9 +12,10 @@ using Solid.School.Data;
 namespace Solid.School.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220807112621_updatedAspNetUsers")]
+    partial class updatedAspNetUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,6 +90,94 @@ namespace Solid.School.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("IdentityUser");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "826d6171-a044-4f4c-b0b6-2979e0bb53ad",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "826d6171-a044-4f4c-b0b6-2979e0bb53af",
+                            Email = "admin@admin.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@ADMIN.COM",
+                            NormalizedUserName = "ADMIN@ADMIN.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAD69QpBo2XlGRn7hQC4+yhe6IMXlgYR3AGFDdiEBJ60V3Jo0nMahIvnBMcDDAEuyg==",
+                            PhoneNumber = "1234567890",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "826d6171-a044-4f4c-b0b6-2979e0bb53ae",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@admin.com"
+                        },
+                        new
+                        {
+                            Id = "95119256-753e-4d5c-a1bf-b307200b64b4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "95119256-753e-4d5c-a1bf-b307200b64b6",
+                            Email = "employee@employee.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "EMPLOYEE@EMPLOYEE.COM",
+                            NormalizedUserName = "EMPLOYEE@EMPLOYEE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAELIg0e0sCUHiXixtfGL6hyJykkVcXt9eXwUp7uTv89FAyvZm+GuZiG6ESWu31xL8dg==",
+                            PhoneNumber = "1234567890",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "95119256-753e-4d5c-a1bf-b307200b64b5",
+                            TwoFactorEnabled = false,
+                            UserName = "employee@employee.com"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -231,9 +321,11 @@ namespace Solid.School.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -260,6 +352,7 @@ namespace Solid.School.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ProfilePic")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
@@ -283,42 +376,6 @@ namespace Solid.School.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "826d6171-a044-4f4c-b0b6-2979e0bb53ad",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "826d6171-a044-4f4c-b0b6-2979e0bb53af",
-                            Email = "admin@admin.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@ADMIN.COM",
-                            NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMlsLdHWP6rYmG59xYWpLMdFpLFGROjvfnfLg9buEDiCVxhN6UUfNFA4ju7p1x4A2g==",
-                            PhoneNumber = "1234567890",
-                            PhoneNumberConfirmed = true,
-                            SecurityStamp = "826d6171-a044-4f4c-b0b6-2979e0bb53ae",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@admin.com"
-                        },
-                        new
-                        {
-                            Id = "95119256-753e-4d5c-a1bf-b307200b64b4",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "95119256-753e-4d5c-a1bf-b307200b64b6",
-                            Email = "employee@employee.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "EMPLOYEE@EMPLOYEE.COM",
-                            NormalizedUserName = "EMPLOYEE@EMPLOYEE.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECHc6HzkZILR7eaq2/ufRzbmqKRFIU9G9+essTPVX2xhpq/+uU6oXPA+lKlmHiJabA==",
-                            PhoneNumber = "1234567890",
-                            PhoneNumberConfirmed = true,
-                            SecurityStamp = "95119256-753e-4d5c-a1bf-b307200b64b5",
-                            TwoFactorEnabled = false,
-                            UserName = "employee@employee.com"
-                        });
                 });
 
             modelBuilder.Entity("Solid.School.Models.Student", b =>
