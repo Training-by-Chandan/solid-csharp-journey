@@ -12,7 +12,7 @@ namespace Solid.CSharp.ConsoleApp
             var res = "n";
             do
             {
-                basic();
+                //basic();
                 //dataTypes();
                 //ControlStatmentsExample();
                 //LoopingStatements();
@@ -32,10 +32,21 @@ namespace Solid.CSharp.ConsoleApp
                 //castToInt("10");
                 //ExceptionHandling();
                 //ParallelProgExample();
+                HTTPRequest();
 
                 Console.WriteLine("Do you want to run once more? (y/n)");
                 res = Console.ReadLine();
             } while (res.ToUpper() == "Y");
+        }
+
+        static void HTTPRequest()
+        {
+            using (var client = new HttpClient())
+            {
+                //client.BaseAddress = new Uri("");
+                var response = client.GetStringAsync("https://localhost:7264/api/student/get-all").Result;
+                Console.WriteLine(response);
+            }
         }
 
         private static void ParallelProgExample()

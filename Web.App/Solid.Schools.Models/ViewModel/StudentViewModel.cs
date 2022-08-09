@@ -22,4 +22,15 @@ namespace Solid.School.ViewModel
 
         public int ClassId { get; set; }
     }
+
+    public class ResponseViewModel
+    {
+        public bool Status { get; set; }
+        public string Message { get; set; }
+    }
+
+    public class TokenViewModel : ResponseViewModel
+    {
+        public string Token { get; set; }
+    }
 }
