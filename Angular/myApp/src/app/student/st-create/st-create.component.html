@@ -1,0 +1,19 @@
+<form [formGroup]="forms" (ngSubmit)="CreateStudent()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phone" formControlName="phoneNumber" placeholder="Enter Phone Number">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="classId">Class Id</label>
+                    <input type="number" class="form-control" id="classId" formControlName="classId" placeholder="Enter ClassId ">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
