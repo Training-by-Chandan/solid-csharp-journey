@@ -12,17 +12,27 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+var corsSpec = "_corsSpec";
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => { 
-    options.RequireHttpsMetadata=false;
+builder.Services.AddCors(p =>
+{
+    p.AddPolicy(name: corsSpec,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+        });
+});
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false;
     options.SaveToken = true;
     options.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateIssuer = true,
-        ValidateAudience=true, 
-         ValidAudience = "ABC",
-         ValidIssuer="XYZ", 
-         IssuerSigningKey=new SymmetricSecurityKey(Encoding.UTF8.GetBytes("aslqwtyuioxcvnmqwyui"))
+        ValidateAudience = true,
+        ValidAudience = "ABC",
+        ValidIssuer = "XYZ",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("aslqwtyuioxcvnmqwyui"))
     };
 });
 
@@ -42,6 +52,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors(corsSpec);
 
 app.UseAuthentication();
 app.UseAuthorization();
